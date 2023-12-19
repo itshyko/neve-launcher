@@ -4,7 +4,6 @@ Le launcher minecraft du projet Neve Aventure par HyKo.
 
 [<p align="left">]()
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/itshyko/neve-launcher?style=for-the-badge)
-![GitHub all releases](https://img.shields.io/github/downloads/itshyko/neve-launcher/total?style=for-the-badge)
 [</p>]()
 
 ## Installation
