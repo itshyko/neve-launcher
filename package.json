@@ -1,7 +1,7 @@
 {
     "name": "neve-launcher",
     "preductname": "Neve Launcher",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "description": "Launcher minecraft du projet Neve par HyKo.dev",
     "main": "src/app.js",
     "author": "HyKo",
@@ -12,7 +12,7 @@
     "scripts": {
         "start": "cross-env-shell NODE_ENV=dev electron .",
         "build": "node build.js --build",
-        "icon": "node build.js --icon=https://raw.githubusercontent.com/luuxis/Selvania-Launcher/master/src/assets/images/icon.png",
+        "icon": "node build.js --icon=https://raw.githubusercontent.com/itshyko/neve-launcher/main/src/assets/images/icon.png",
         "dev": "nodemon --exec npm start"
     },
     "license": "CC0",
