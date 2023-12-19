@@ -10,7 +10,11 @@ Télécharger le launcher dans les "releases" en sélectionnant votre plateforme
 2. Connectez-vous à votre compte Minecraft.
 3. Cliquez sur Jouer!
 
-## Authors
+## Auteurs
 
 - [@itshyko](https://github.com/itshyko)
 
+## Inspiration
+
+- [Helios Launcher](https://github.com/dscalzi/HeliosLauncher)
+- [Selvania Launcher](https://github.com/luuxis/Selvania-Launcher)
