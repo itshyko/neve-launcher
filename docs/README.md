@@ -14,7 +14,7 @@ Télécharger le launcher dans les "releases" en sélectionnant votre plateforme
 
 - [@itshyko](https://github.com/itshyko)
 
-## Inspiration
+## Inspirations
 
 - [Helios Launcher](https://github.com/dscalzi/HeliosLauncher)
 - [Selvania Launcher](https://github.com/luuxis/Selvania-Launcher)
