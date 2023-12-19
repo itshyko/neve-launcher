@@ -1,6 +1,12 @@
 # Neve Launcher
 
-Le launcher minecraft du projet Neve Aventure par HyKo.dev
+Le launcher minecraft du projet Neve Aventure par HyKo.
+
+[<p align="left">]()
+![GitHub all releases](https://img.shields.io/github/downloads/itshyko/neve-launcher/total?style=for-the-badge)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/itshyko/neve-launcher?style=for-the-badge)
+![Discord](https://img.shields.io/discord/828806825997631498?style=for-the-badge)
+[</p>]()
 
 ## Installation
 
