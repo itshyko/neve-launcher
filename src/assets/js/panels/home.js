@@ -12,6 +12,8 @@ const { ipcRenderer } = require('electron');
 const launch = new Launch();
 const pkg = require('../package.json');
 
+const DiscordRP = require('./assets/js/discordRP.js');
+
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? `${process.env.HOME}/Library/Application Support` : process.env.HOME)
 
 class Home {
@@ -27,6 +29,8 @@ class Home {
     }
 
     async initNews() {
+        DiscordRP.start();
+        
         let news = document.querySelector('.news-list');
         if (this.news) {
             if (!this.news.length) {
@@ -140,6 +144,13 @@ class Home {
             playBtn.style.display = "none"
             info.style.display = "block"
             launch.Launch(opts);
+
+            try {
+                DiscordRP.stop();
+                console.log('Discord RP arrêté avec succès.');
+            } catch (error) {
+                console.error('Erreur lors de l\'arrêt de Discord RP:', error);
+            }
 
             launch.on('extract', extract => {
                 console.log(extract);
