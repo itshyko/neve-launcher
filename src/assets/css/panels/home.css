@@ -3,12 +3,13 @@
     bottom: 0;
     width: 100%;
     height: 70px;
-    background: #00000080;
+    background: #000000;
     display: flex;
 }
 
 .player-head {
     margin: auto 30px;
+    margin-right: 18px;
     background-image: url("../../images/default/setve.png");
     background-size: cover;
     background-position: center;
@@ -20,21 +21,30 @@
     border-radius: 10px;
 }
 
+.player-name {
+    color: white;
+    font-family: 'Poppins';
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 18px;
+    margin-top: 22px;
+}
+
 .settings-btn {
-    position: absolute;
-    top: 13px;
-    right: 30px;
     text-align: center;
-    width: 45px;
-    height: 45px;
+    width: 32px;
+    height: 32px;
     border: none;
     border-radius: 10px;
     transition: all 0.5s cubic-bezier(1, 0.46, 0, 1.29);
     cursor: pointer;
+    background-color: #222222;
+    margin-left: 10px;
 }
 
 .icon-settings:before {
-    font-size: 32px;
+    font-size: 20px;
+    color: white;
 }
 
 .play-element {
@@ -45,6 +55,8 @@
     color: #F1F1F1;
     font: normal normal bold 19px/29px Poppins;
     text-align: center;
+    display: flex;
+    align-items: center;
 }
 
 .play-btn {
@@ -55,11 +67,15 @@
     border: none;
     background: #c4000c;
     font: normal normal bold 20px/25px Poppins;
-    color: #121212;
+    color: white;
     margin: 15px 0;
-    box-shadow: 0 0 5px #c4000c;
     cursor: pointer;
 }
+.play-btn i {
+    margin-right: 8px;
+    font-size: 18px;
+}
+
 
 .download-content {
     position: absolute;
@@ -124,7 +140,7 @@
     left: 0px;
     width: 100%;
     height: 87px;
-    background-color: #100f0f;
+    background-color: #000000;
     border-radius: 10px 10px 0px 0px;
     transition: color .2s, filter .2s;
 }
@@ -181,13 +197,14 @@
 .bbWrapper {
     position: relative;
     padding: 20px;
-    background-color: rgba(20, 16, 16, 0.774);
+    background-color: rgba(0, 0, 0, 0.75);
     font-family: Poppins;
     font-size: 13px !important;
     color: #E1E1E1;
     text-decoration: none;
     border-radius: 0px 0px 10px 10px;
     transition: color .2s;
+    backdrop-filter: blur(6px);
 }
 
 .news-author {
@@ -211,9 +228,10 @@
     position: relative;
     width: 100%;
     height: 75px;
-    background-color: #100f0f;
+    background-color: rgba(0, 0, 0, 0.75);
     border-radius: 10px;
     opacity: 1;
+    backdrop-filter: blur(6px);
 }
 
 .server-img {
@@ -257,7 +275,7 @@
     right: 14px;
     width: 49px;
     height: 33px;
-    background-color: #262626;
+    background-color: #1a1a1ae0;
     border-radius: 4px;
     transition: background-color .2s;
 }

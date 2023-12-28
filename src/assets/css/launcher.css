@@ -11,7 +11,10 @@ body {
     margin: 0;
     padding: 0;
     user-select: none;
-    background: linear-gradient(#00000066, #00000066), url("../images/background/light.jpg") black no-repeat center center scroll;
+    background: linear-gradient(#00000022, #00000022), url("../images/background/light.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 img {
@@ -21,14 +24,27 @@ img {
 
 .dragbar {
     position: fixed;
-    background: #00000080;
+    background: #000000;
     top: 0px;
     left: 0px;
     width: 100%;
-    height: 26px;
+    height: 30px;
     -webkit-app-region: drag;
     z-index: 11;
     display: none;
+}
+
+.dragbar p {
+    display: block;
+    z-index: 9999;
+    position: fixed;
+    top: 6px;
+    color: white;
+    font-size: 11px;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    font-family: 'Poppins';
 }
 
 .frame {

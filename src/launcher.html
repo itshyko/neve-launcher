@@ -2,9 +2,34 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="assets/css/launcher.css">
+        <script src="https://kit.fontawesome.com/0491bf1fd4.js" crossorigin="anonymous"></script>
     </head>
     <body class="hide">
-        <div class="dragbar"></div>
+        <!-- full screen youtube video background -->
+        <div class="video-background">
+            <iframe id="video" src="https://www.youtube.com/embed/5e1wvp5j3vI?autoplay=1&controls=0&loop=1&modestbranding=1&showinfo=0&rel=0&iv_load_policy=3&enablejsapi=1&widgetid=1&mute=1" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <style>
+            .video-background {
+                position: fixed;
+                top: -80px;
+                right: -80px;
+                bottom: -80px;
+                left: -80px;
+                overflow: hidden;
+                z-index: -99;
+            }
+            .video-background iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+        </style>
+        <div class="dragbar">
+            <p>Neve Launcher - Version 2.0.1</p>
+        </div>
         <div class="frame">
             <div id="minimize" class="button-frame icon-minimize"></div>
             <div id="maximize" class="button-frame icon-maximize"></div>

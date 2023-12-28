@@ -6,13 +6,14 @@
 const { app, ipcMain } = require('electron');
 const { Microsoft } = require('minecraft-java-core');
 const { autoUpdater } = require('electron-updater')
-const DiscordRPC = require('discord-rpc');
 
 const path = require('path');
 const fs = require('fs');
 
 const UpdateWindow = require("./assets/js/windows/updateWindow.js");
 const MainWindow = require("./assets/js/windows/mainWindow.js");
+
+const DiscordRP = require('./assets/js/discordRP.js');
 
 let data
 let dev = process.env.NODE_ENV === 'dev';
@@ -26,27 +27,10 @@ if (dev) {
 const gotTheLock = app.requestSingleInstanceLock();
 
 if (!gotTheLock) {
-    rpc.destroy();
     app.quit();
 } else {
     app.whenReady().then(() => {
         UpdateWindow.createWindow();
-
-        //Discord RPC
-        const clientId = '1186059125470285936';
-        const rpc = new DiscordRPC.Client({ transport: 'ipc' });
-        const startTimestamp = new Date();
-        const activity = {
-            state: 'Dans le launcher',
-            startTimestamp,
-            largeImageKey: 'neve',
-            largeImageText: 'Version 2.0.0',
-            instance: false,
-        };
-        rpc.on('ready', () => {
-            rpc.setActivity(activity);
-        });
-        rpc.login({ clientId }).catch(console.error);
     });
 }
 
