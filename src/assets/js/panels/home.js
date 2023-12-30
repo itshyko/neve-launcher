@@ -99,6 +99,7 @@ class Home {
             let Resolution = (await this.database.get('1234', 'screen')).value;
             let launcherSettings = (await this.database.get('1234', 'launcher')).value;
 
+            let settingsBtn = document.querySelector('.settings-btn');
             let playBtn = document.querySelector('.play-btn');
             let info = document.querySelector(".text-download")
             let progressBar = document.querySelector(".progress-bar")
@@ -142,6 +143,7 @@ class Home {
             }
 
             playBtn.style.display = "none"
+            settingsBtn.style.display = "none";
             info.style.display = "block"
             launch.Launch(opts);
 
