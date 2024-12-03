@@ -8,7 +8,7 @@ const fetch = require("node-fetch")
 let url = pkg.user ? `${pkg.url}/${pkg.user}` : pkg.url
 
 let config = `${url}/launcher/config-launcher/config.json`;
-let news = `https://directapi.hyko.cloud/items/neve_aventure_launcher_news`;
+let news = `${url}/launcher/news-launcher/news.json`;
 
 class Config {
     GetConfig() {
