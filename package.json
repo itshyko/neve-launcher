@@ -1,13 +1,13 @@
 {
     "name": "neve-launcher",
     "preductname": "Neve Launcher",
-    "version": "2.0.7",
+    "version": "2.0.8",
     "description": "Launcher minecraft du projet Neve par HyKo",
     "main": "src/app.js",
     "author": "HyKo",
     "url": "https://nevefiles.hyko.dev/",
     "engines": {
-        "node": ">18.x.x"
+        "node": ">18.0.0"
     },
     "scripts": {
         "start": "cross-env-shell NODE_ENV=dev electron .",
