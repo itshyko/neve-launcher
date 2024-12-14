@@ -7,7 +7,7 @@
     "author": "HyKo",
     "url": "https://nevefiles.hyko.dev/",
     "engines": {
-        "node": ">18.x.x"
+        "node": ">=18.x"
     },
     "scripts": {
         "start": "cross-env-shell NODE_ENV=dev electron .",
