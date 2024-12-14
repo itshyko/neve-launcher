@@ -13,7 +13,7 @@ jobs:
 
       - name: Get version
         run: echo "version=$(jq -r .version package.json)" >> $GITHUB_ENV
-      
+
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -58,6 +58,23 @@ jobs:
 
       - name: Build Launcher
         env:
-          GITHUB_TOKEN: ${{ secrets.GITH_TOKEN }} # Ensure this secret is defined in GitHub settings
+          GITHUB_TOKEN: ${{ secrets.GITH_TOKEN }}
         run: npm run build
         shell: bash
+
+      - name: Upload Build Artefacts
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITH_TOKEN }}
+        run: |
+          ls dist # Vérifier le contenu du dossier `dist`
+        shell: bash
+
+      - name: Upload to GitHub Release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITH_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: dist/ # Remplacez `dist/` par le chemin exact vers vos fichiers générés
+          asset_name: "${{ matrix.os }}_build.zip" # Nommez les artefacts correctement
+          asset_content_type: application/zip
