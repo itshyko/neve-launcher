@@ -1,7 +1,7 @@
 {
     "name": "neve-launcher",
     "preductname": "Neve Launcher",
-    "version": "2.0.8",
+    "version": "2.0.9",
     "description": "Launcher minecraft du projet Neve par HyKo",
     "main": "src/app.js",
     "author": "HyKo",
@@ -36,6 +36,6 @@
     },
     "repository": {
         "type": "git",
-        "url": ""
+        "url": "git+https://github.com/itshyko/neve-launcher.git"
     }
 }
