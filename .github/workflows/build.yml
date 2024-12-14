@@ -1,5 +1,4 @@
 name: Launcher Build
-
 on:
   push:
     branches: [ main ]
@@ -13,7 +12,7 @@ jobs:
 
       - name: Get version
         run: echo "version=$(jq -r .version package.json)" >> $GITHUB_ENV
-
+      
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -38,13 +37,12 @@ jobs:
 
     steps:
       - name: Check out Git repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v1
 
-      - name: Set up Node.js
+      - name: Set up Node
         uses: actions/setup-node@v3
         with:
-          # Change to a compatible Node.js version
-          node-version: '>=19.0.0'
+          node-version: 18.x
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -52,29 +50,11 @@ jobs:
           python-version: 3.x
 
       - name: Install Dependencies
-        run: |
-          npm install
+        run: npm ci
         shell: bash
 
-      - name: Build Launcher
+      - name: Build
         env:
-          GITHUB_TOKEN: ${{ secrets.GITH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITH_TOKEN }}
         run: npm run build
         shell: bash
-
-      - name: Upload Build Artefacts
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITH_TOKEN }}
-        run: |
-          ls dist # Vérifier le contenu du dossier `dist`
-        shell: bash
-
-      - name: Upload to GitHub Release
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITH_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: dist/ # Remplacez `dist/` par le chemin exact vers vos fichiers générés
-          asset_name: "${{ matrix.os }}_build.zip" # Nommez les artefacts correctement
-          asset_content_type: application/zip
