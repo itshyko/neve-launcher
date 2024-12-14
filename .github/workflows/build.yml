@@ -18,7 +18,7 @@ jobs:
         id: create_release
         uses: actions/create-release@v1
         env:
-          GITH_TOKEN: ${{ secrets.GITH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITH_TOKEN }}
         with:
           tag_name: ${{ env.version }}
           release_name: Version ${{ env.version }}
@@ -58,6 +58,6 @@ jobs:
 
       - name: Build Launcher
         env:
-          GH_TOKEN: ${{ secrets.GITH_TOKEN }} # Ensure this secret is defined in GitHub settings
+          GITHUB_TOKEN: ${{ secrets.GITH_TOKEN }} # Ensure this secret is defined in GitHub settings
         run: npm run build
         shell: bash
