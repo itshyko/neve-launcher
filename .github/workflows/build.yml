@@ -1,5 +1,4 @@
 name: Launcher Build
-
 on:
   push:
     branches: [ main ]
@@ -13,26 +12,24 @@ jobs:
 
       - name: Get version
         run: echo "version=$(jq -r .version package.json)" >> $GITHUB_ENV
-
+      
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ env.version }}
           release_name: Version ${{ env.version }}
           draft: false
           prerelease: ${{ contains(env.version, 'beta') || contains(env.version, 'alpha') }}
 
-      - name: Debug Release Outputs
-        run: |
-          echo "Release Upload URL: ${{ steps.create_release.outputs.upload_url }}"
-          echo "Version: ${{ env.version }}"
-
   build-launcher:
     needs: create-release
     runs-on: ${{ matrix.os }}
+
+    permissions:
+      contents: write
 
     strategy:
       matrix:
@@ -40,30 +37,24 @@ jobs:
 
     steps:
       - name: Check out Git repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v1
 
-      - name: Set up Node.js
+      - name: Set up Node
         uses: actions/setup-node@v3
         with:
-          node-version: '>=19.0.0'
+          node-version: 18.x
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
 
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
+        shell: bash
 
-      - name: Build Launcher
-        run: npm run build
-
-      - name: Debug Build Process
-        run: |
-          echo "Liste des fichiers générés après le build :"
-          find .
-
-      - name: Upload to GitHub Release
-        uses: actions/upload-release-asset@v1
+      - name: Build
         env:
-          GITHUB_TOKEN: ${{ secrets.GITH_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: dist/ubuntu-latest_build.zip  # Ajustez le chemin si nécessaire
-          asset_name: ubuntu-latest_build.zip
-          asset_content_type: application/zip
+          GH_TOKEN: ${{ secrets.github_token }}
+        run: npm run build
+        shell: bash
