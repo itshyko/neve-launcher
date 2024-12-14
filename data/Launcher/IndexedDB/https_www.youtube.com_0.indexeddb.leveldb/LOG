@@ -1,0 +1,7 @@
+2024/12/13-20:25:55.816 4da8 Reusing MANIFEST C:/Users/Ismael/Documents/GitHub/neve-launcher/data/Launcher\IndexedDB\https_www.youtube.com_0.indexeddb.leveldb/MANIFEST-000001
+2024/12/13-20:25:55.816 4da8 Recovering log #3
+2024/12/13-20:25:55.816 4da8 Reusing old log C:/Users/Ismael/Documents/GitHub/neve-launcher/data/Launcher\IndexedDB\https_www.youtube.com_0.indexeddb.leveldb/000003.log 
+2024/12/13-20:25:56.161 6854 Level-0 table #5: started
+2024/12/13-20:25:56.168 6854 Level-0 table #5: 136920 bytes OK
+2024/12/13-20:25:56.175 6854 Delete type=0 #3
+2024/12/13-20:25:56.176 6854 Manual compaction at level-0 from '\x00\x02\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x03\x00\x00\x00' @ 0 : 0; will stop at (end)

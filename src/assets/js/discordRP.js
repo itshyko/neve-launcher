@@ -10,7 +10,7 @@ const activity = {
     state: 'Dans le launcher',
     startTimestamp,
     largeImageKey: 'launcher-neve-2',
-    largeImageText: 'Version 2.0.9',
+    largeImageText: 'Version 2.0.6',
     smallImageKey: 'neve',
     smallImageText: 'Neve Launcher',
     instance: false,
